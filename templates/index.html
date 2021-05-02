@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+  <link rel="shortcut icon" href="{{ url_for('static', filename='ipl-favicon.ico') }}">  
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <head>
+        
+      <title>IPL SCORE PREDICTION</title>
+
+       <style>
+           @import url(https://fonts.googleapis.com/css?family=Open+Sans:300);
+* {
+  font-family: 'Open Sans', sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background:url('../static/3.jpeg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 120% 100%;
+
+}
+
+.signupSection {
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 50%;
+  left: 30%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 450px;
+  text-align: center;
+  display: flex;
+  color: white;
+  box-shadow: 3px 10px 20px 5px rgba(0, 0, 0, .5);
+}
+
+.info {
+  width: 45%;
+  background: rgba(20, 20, 20, .8);
+  padding: 30px 0;
+  border-right: 5px solid rgba(30, 30, 30, .8);
+
+}
+  .icon {
+    font-size: 8em;
+    padding: 20px 0;
+    color: rgba(10, 180, 180, 1);
+  }
+
+
+.signupForm {
+  width: 70%;
+  padding: 30px 0;
+  background: rgba(20, 40, 40, .8);
+  transition: .2s;
+
+}
+
+.inputFields {
+  margin: 15px 0;
+  font-size: 16px;
+  padding: 10px;
+  width: 250px;
+  border: 1px solid rgba(10, 180, 180, 1);
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  background: rgba(20, 20, 20, .2);
+  color: rgba(10, 180, 180, 1);
+  outline: none;
+}
+
+.noBullet {
+  list-style-type: none;
+  padding: 0;
+}
+
+#join-btn {
+  border: 1px solid rgba(10, 180, 180, 1);
+  background: rgba(20, 20, 20, .6);
+  font-size: 18px;
+  color: white;
+  margin-top: 20px;
+  padding: 10px 50px;
+  cursor: pointer;
+  transition: .4s;
+ 
+}
+#join-btn:hover{
+  background: rgba(20, 20, 20, .8);
+    padding: 10px 80px;
+}
+.social-icons a{
+  background-color:#eceeef;
+  color:#818a91;
+  font-size:16px;
+  display:inline-block;
+  line-height:44px;
+  width:37px;
+  height:37px;
+  text-align:center;
+  margin-right:8px;
+  border-radius:100%;
+  -webkit-transition:all .2s linear;
+  -o-transition:all .2s linear;
+  transition:all .2s linear
+}
+.social-icons a:active,.social-icons a:focus,.social-icons a:hover
+{
+  color:#fff;
+  background-color:#29aafe
+}
+.social-icons.size-sm a
+{
+  line-height:34px;
+  height:34px;
+  width:34px;
+  font-size:14px
+}
+.social-icons a.facebook:hover
+{
+  background-color:#d461b2
+}
+.social-icons a.twitter:hover
+{
+  background-color:#00aced
+}
+.social-icons a.linkedin:hover
+{
+  background-color:#007bb6
+}
+.social-icons a.dribbble:hover
+{
+  background-color:#0a0a0a
+}
+
+       </style>
+        </head>
+    <body>
+        
+        <div class="container">
+                <div class="signupSection">
+                    <div class="info">
+                        <h1>IPL <br>PREDICTION</h1>
+                      <br><br><br><br><br>
+                      
+                      <p class="copyright-text">Copyright &copy; 2021 <br> This Project is created by Ateef Radiowalla and Khadija
+                      Morbiwala</p>
+                      <p>Please Star This Repository if it has helped you in anyway!</p>
+                    </div>
+
+                    <form action="{{ url_for('predict') }}" method="POST" class="signupForm" name="signupform">
+                      <ul class="noBullet">
+                        <li><!-- Batting Team Dropdown -->
+                            <select name="batting-team" class="inputFields">
+                                <option value="none">--- Select a Batting team ---</option>
+                                <option value="Mumbai Indians">Mumbai Indians</option>
+                                <option value="Kolkata Knight Riders">Kolkata Knight Riders</option>
+                                <option value="Chennai Super Kings">Chennai Super Kings</option>
+                                <option value="Rajasthan Royals">Rajasthan Royals</option>
+                                <option value="Kings XI Punjab">Kings XI Punjab</option>
+                                <option value="Royal Challengers Bangalore">Royal Challengers Bangalore</option>
+                                <option value="Delhi Daredevils">Delhi Daredevils</option>
+                                <option value="Sunrisers Hyderabad">Sunrisers Hyderabad</option>
+                            </select><br> </li>
+                        <li><!-- Bowling Team Dropdown -->
+                            <select name="bowling-team" class="inputFields">
+                                <option value="none">--- Select a Bowling team ---</option>
+                                <option value="Mumbai Indians">Mumbai Indians</option>
+                                <option value="Kolkata Knight Riders">Kolkata Knight Riders</option>
+                                <option value="Chennai Super Kings">Chennai Super Kings</option>
+                                <option value="Rajasthan Royals">Rajasthan Royals</option>
+                                <option value="Kings XI Punjab">Kings XI Punjab</option>
+                                <option value="Royal Challengers Bangalore">Royal Challengers Bangalore</option>
+                                <option value="Delhi Daredevils">Delhi Daredevils</option>
+                                <option value="Sunrisers Hyderabad">Sunrisers Hyderabad</option>
+                            </select><br> </li>
+                        <li>
+                          <input type="text" name="innings" placeholder="Innings" class="inputFields" required/>
+                        </li>
+                        <li id="center-btn">
+                          <input type="submit" id="join-btn" name="submit" alt="Join" value="Predict">
+                        </li>
+                      </ul>
+                      
+                    </form>
+                  </div>     
+               
+    </body>
+</html>

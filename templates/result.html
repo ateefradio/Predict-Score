@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<link rel="shortcut icon" href="{{ url_for('static', filename='ipl-favicon.ico') }}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<head>
+
+    <title>IPL SCORE PREDICTION</title>
+
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Open+Sans:300);
+
+        * {
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background: url('../static/3.jpeg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: 110% 100%;
+
+        }
+
+        .signupSection {
+            background-repeat: no-repeat;
+            position: absolute;
+            top: 50%;
+            left: 30%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            height: 450px;
+            text-align: center;
+            display: flex;
+            color: white;
+            box-shadow: 3px 10px 20px 5px rgba(0, 0, 0, .5);
+        }
+        @media screen {
+
+        }
+
+        .info {
+            width: 45%;
+            background: rgba(20, 20, 20, .8);
+            padding: 30px 0;
+            border-right: 5px solid rgba(30, 30, 30, .8);
+
+        }
+
+        .icon {
+            font-size: 8em;
+            padding: 20px 0;
+            color: rgba(10, 180, 180, 1);
+        }
+
+
+        .signupForm {
+            width: 70%;
+            padding: 30px 0;
+            background: rgba(20, 40, 40, .8);
+            transition: .2s;
+
+        }
+
+        .inputFields {
+            margin: 15px 0;
+            font-size: 16px;
+            padding: 10px;
+            width: 250px;
+            border: 1px solid rgba(10, 180, 180, 1);
+            border-top: none;
+            border-left: none;
+            border-right: none;
+            background: rgba(20, 20, 20, .2);
+            color: rgba(10, 180, 180, 1);
+            outline: none;
+        }
+
+        .noBullet {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        #join-btn {
+            border: 1px solid rgba(10, 180, 180, 1);
+            background: rgba(20, 20, 20, .6);
+            font-size: 18px;
+            color: white;
+            margin-top: 20px;
+            padding: 10px 50px;
+            cursor: pointer;
+            transition: .4s;
+
+        }
+
+        #join-btn:hover {
+            background: rgba(20, 20, 20, .8);
+            padding: 10px 80px;
+        }
+
+        .social-icons a {
+            background-color: #eceeef;
+            color: #818a91;
+            font-size: 16px;
+            display: inline-block;
+            line-height: 44px;
+            width: 35px;
+            height: 35px;
+            text-align: center;
+            margin-right: 8px;
+            border-radius: 100%;
+            -webkit-transition: all .2s linear;
+            -o-transition: all .2s linear;
+            transition: all .2s linear
+        }
+
+        .social-icons a:active,
+        .social-icons a:focus,
+        .social-icons a:hover {
+            color: #fff;
+            background-color: #29aafe
+        }
+
+        .social-icons.size-sm a {
+            line-height: 34px;
+            height: 34px;
+            width: 34px;
+            font-size: 14px
+        }
+
+        .social-icons a.facebook:hover {
+            background-color: #d461b2
+        }
+
+        .social-icons a.twitter:hover {
+            background-color: #00aced
+        }
+
+        .social-icons a.linkedin:hover {
+        background-color: #007bb6
+        }
+
+        .social-icons a.dribbble:hover {
+        background-color: #0a0a0a
+        }
+        .result{
+
+        font-size: 35px;
+        color: #fff;
+        text-align: center;
+        animation: glow 1s ease-in-out infinite alternate;
+        }
+
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #a66ac2, 0 0 40px #8748c2, 0 0 50px #3e0985, 0 0 60px #4a027a, 0 0 70px #6d01e7;
+  }
+  
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #a66ac2, 0 0 50px #8748c2, 0 0 60px #3e0985, 0 0 70px #4a027a, 0 0 80px #6d01e7;
+  }
+}
+        
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="signupSection">
+            <div class="info">
+                <h1>IPL <br>PREDICTION</h1>
+                <br><br><br><br><br>
+
+                <p class="copyright-text">Copyright &copy; 2021 <br> All Rights Reserved by Ateef Radiowalla.</p>
+                <ul class="social-icons">
+                    <a class="facebook" href="https://www.instagram.com/iamateefradio/"><i
+                            class="fa fa-instagram"></i></a>
+                    <a class="twitter" href="https://twitter.com/imateefradio"><i class="fa fa-twitter"></i></a>
+                    <a class="dribbble" href="https://github.com/ateefradio"><i class="fa fa-github"></i></a>
+                    <a class="linkedin" href="https://www.linkedin.com/in/ateef-radiowalla-5683351aa/"><i
+                            class="fa fa-linkedin"></i></a>
+                </ul>
+            </div>
+            <!-- Result -->
+            <div class="results">
+            <br><br><br><br><br><br>
+                <p class='result'>THE PREDICTED SCORE IS <br> {{ lower_limit }} </p>
+            </div>
+
+        </div>
+
+</body>
+
+</html>
